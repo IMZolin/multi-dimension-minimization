@@ -21,18 +21,18 @@ def norma_calculate(vector):
 
 def gradient_method(self, accuracy, X0, one_d_method):
     X = X0
-    X_step_points_array = []
+    self.X_step_points_array = []
     while True:
         #  вычисляем ЗНАЧЕНИЯ градиента в точке Х
         grad_f_k = []
         for item in self.nabla_vector:
             grad_f_k.append(eval(item))
-
+        print(grad_f_k, self.nabla_vector)
         """
         ВОТ ЗДЕСЬ, Я ПРЕДПОЛАГАЮ, НАДО ЗАПОМИНАТЬ ТОЧКИ (X), КОТОРЫЕ ПОТОМ НАДО ВЫВОДИТЬ НА ГРАФИКАХ.
         МОЖНО ВЕРНУТЬ ИХ МАССИВ ИЗ МЕТОДА И ПОТОМ ОТДЕЛЬНЫМ МЕТОДОМ ОТРИСОВЫВАТЬ. ТАК ЛОГИЧНЕЕ:
         """
-        X_step_points_array.append(X)
+        self.X_step_points_array.append(X)
 
         #  создаем и решаем задачу минимизации
         p = One_D_Problem()
@@ -42,12 +42,12 @@ def gradient_method(self, accuracy, X0, one_d_method):
         alfa_k = one_d_method(p, accuracy)[0]
 
         #  k -> k + 1
-        print(X)
+        # print(X)
         X = [X[i] - alfa_k * grad_f_k[i] for i in range(len(X))]
 
         #  проверка на решение
         if norma_calculate(grad_f_k) < accuracy:
-            return X_step_points_array
+            return self.X_step_points_array
 
 
 
