@@ -1,4 +1,4 @@
-from src.One_D_Problem_file import One_D_Problem
+from One_D_Problem_file import One_D_Problem
 
 if __name__ == '__main__':
     problem = One_D_Problem()

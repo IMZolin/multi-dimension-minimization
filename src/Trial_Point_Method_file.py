@@ -30,4 +30,3 @@ def trial_point_method(self, accuracy):
     f_2 = self.target_function(x_2)
     return recursion_function(self, self.left_border, self.right_border, accuracy, 1, f_2)
 
-

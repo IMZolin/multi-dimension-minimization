@@ -38,4 +38,3 @@ def golden_search(self, accuracy):
     return res_dot, count
 
 
-
